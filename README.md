@@ -1,2 +1,2 @@
 # small_projects
-Some small projects from textbook
+Some small projects from textbooks
