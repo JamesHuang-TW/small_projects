@@ -1,14 +1,15 @@
 /* rule description from https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life:
 These rules, which compare the behavior of the automaton to real life, can be condensed into the following:
 
-Any live cell with two or three live neighbours survives.
-Any dead cell with three live neighbours becomes a live cell.
-All other live cells die in the next generation. Similarly, all other dead cells stay dead.    
+1. Any live cell with two or three live neighbours survives.
+2. Any dead cell with three live neighbours becomes a live cell.
+3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.
 */
+
+// board[r][c] == 1 means alive and == 0 means dead
 
 // approach 1 : construct neighbor matrix
 // approach 2 : state machine, i.e. live->dead, set the value = -1 & dead->live, set the value = 2 temporarily
-
 
 void gameOfLife(vector<vector<int>>& board) {
     int rows = board.size();
@@ -30,11 +31,11 @@ void gameOfLife(vector<vector<int>>& board) {
                     }
                 }
             }
-            // rule 1,3
+            // rule 1,3. Here we use -1 to keep the information that it is alive in the present stage and will be dead in the next stage
             if (board[row][col] == 1 && (liveNeighbors < 2 || liveNeighbors > 3)) {
                 board[row][col] = -1;
             }
-            // rule 4
+            // rule 2
             if (board[row][col] == 0 && liveNeighbors == 3) {
                 board[row][col] = 2;
             }
