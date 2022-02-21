@@ -1,3 +1,11 @@
+/% rule description from https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life:
+These rules, which compare the behavior of the automaton to real life, can be condensed into the following:
+
+Any live cell with two or three live neighbours survives.
+Any dead cell with three live neighbours becomes a live cell.
+All other live cells die in the next generation. Similarly, all other dead cells stay dead.    
+%/
+
 // approach 1 : construct neighbor matrix
 // approach 2 : state machine, i.e. live->dead, set the value = -1 & dead->live, set the value = 2 temporarily
 
